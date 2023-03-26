@@ -13,5 +13,5 @@ this web site will be easily displayed on the andriod application on web view
 
 ### rental
  framer can buy or rent 
-  -payment portal
-  -rental api
+  - payment portal
+  - rental api
