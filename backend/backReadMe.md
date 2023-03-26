@@ -1,6 +1,4 @@
 ## backend will be done via node js
-
-
 ### api for rental 
  - product name
  - rate
@@ -13,4 +11,4 @@
  - vegetable name
  -current price
  -volume demand 
- 
+
