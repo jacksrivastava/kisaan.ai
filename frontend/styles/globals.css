@@ -1,3 +1,57 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.main{
+    align-items: baseline;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: repeat(3 ,auto);
+    row-gap: 5px;
+    padding-bottom: 50px;
+}
+
+.heading{
+    margin: 50px;
+    align-items: center;
+}
+
+.col1{
+    margin: 20px;
+    grid-column: 1/span 1;
+}
+
+.col2{
+    grid-row: 1/span 3;
+    grid-column: 2/span 1;
+    padding-bottom: 20px;
+}
+
+@media screen and (max-width:800px) {
+    .main{
+        display: grid;
+        grid-template-columns:100%;
+        /* flex-direction: column;
+        place-items: center;
+        gap: 15px; */
+         
+    }
+    .col2{
+        grid-row: 4/span 1;
+        grid-column: 1/span 1;
+    }
+    .col1{
+        grid-column: 1/span 1;
+    }
+    
+}
+
+.MuiCard-root:hover{
+    border: solid 2px #86d72f;
+    box-shadow: 0 0 18px 2px rgba(87, 87, 87, 0.159);
+    background-color: #86d72f1c;
+    color: #117b13;
+
+    
+}

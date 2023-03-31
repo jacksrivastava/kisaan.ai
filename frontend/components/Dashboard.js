@@ -2,7 +2,6 @@ import React from "react";
 import Navbar from "./Navbar";
 import Image from "next/image";
 import Slider from "./Slider";
-
 function DashBoard() {
   return (
     <div>
@@ -11,6 +10,8 @@ function DashBoard() {
           <div className="font-bold italic text-2xl text-blue-500 m-4">
             मेरा खेत
           </div>
+          
+
           <div className="flex justify-end">
             <Image src="/my-avatar.png" width={80} height={79} />
           </div>
@@ -42,7 +43,7 @@ function DashBoard() {
           </div>
         </div>
         {/* <!-- carousel slider --> */}
-        <Slider/>
+        <Slider />
       </div>
       <Navbar />
     </div>

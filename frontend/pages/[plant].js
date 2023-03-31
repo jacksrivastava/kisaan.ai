@@ -1,43 +1,122 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import { client, urlFor } from "../client";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 import Navbar from "../components/Navbar";
 
-function Plant() {
+function plant() {
+  const { query } = useRouter();
+  const plantId = query.plant;
+  const [plant, setPlant] = useState({});
+  useEffect(() => {
+    const query = '*[_type=="plants"]';
+    client.fetch(query).then((data) => {
+      data.map((item) => {
+        if (item.name == plantId) {
+          setPlant(item);
+        }
+      });
+    });
+  }, [plantId]);
   return (
-    <div>
-      <div className="flex">
-        <div>
-          <div className="p-1 border-2 border-blue-200 rounded-lg">
-            Name
-          </div>
-          <div className="p-1 border-2 border-blue-200 rounded-lg">
-            Age
-          </div>
-        </div>
-        <div className="flex-1"></div>
+    <>
+      <div className="heading">
+        <h1
+          align="center"
+          style={{ fontSize: "40px", fontWeight: "600", color: "#117b13" }}
+        >
+          🌱 {plant.name}
+        </h1>
       </div>
-      <div className="flex justify-between">
-        <div className="">
-          <div className="p-1 border-2 border-blue-200 rounded-lg">
-            <div className="text-gray-600 italic font-bold">Temperature</div>
-            <div className="text-6xl mt-2 ml-4 font-light">
-              <span className="font-semibold">36</span>°
-            </div>
+
+      <div className="main">
+        <div>
+          <div className="col1">
+            <Card
+              sx={{ minWidth: 275, maxWidth: "500px", borderRadius: "10px" }}
+              variant="outlined"
+            >
+              <CardContent>
+                <Typography variant="h5" component="div">
+                  📅 AGE in days
+                </Typography>
+                <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                  {plant.age}
+                </Typography>
+              </CardContent>
+            </Card>
           </div>
-          <div className="p-1 border-2 border-blue-200 rounded-lg">
-            <div className="text-gray-600 italic font-bold">Humidity</div>
-            <div className="text-3xl mt-2 ml-3 font-thin">
-              <span className="text-6xl font-semibold">41</span>%
-            </div>
+          <div className="col1">
+            <Card
+              sx={{ minWidth: 275, maxWidth: "500px", borderRadius: "10px" }}
+              variant="outlined"
+            >
+              <CardContent>
+                <Typography variant="h5" component="div">
+                  ❤️‍🩹 HEALTH
+                </Typography>
+                <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                  Good
+                </Typography>
+                <Typography variant="body2">
+                  well meaning and kindly.
+                  <br />
+                  {'"a benevolent smile"'}
+                </Typography>
+              </CardContent>
+            </Card>
+          </div>
+          <div className="col1">
+            <Card
+              sx={{ minWidth: 275, maxWidth: "500px", borderRadius: "10px" }}
+              variant="outlined"
+            >
+              <CardContent>
+                <Typography variant="h5" component="div">
+                  ACTION
+                </Typography>
+                <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                  Irrigation
+                </Typography>
+                <Typography variant="body2">
+                  well meaning and kindly.
+                  <br />
+                  {'"a benevolent smile"'}
+                </Typography>
+              </CardContent>
+            </Card>
           </div>
         </div>
-        <img
-          src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80"
-          className="object-cover h-80"
-        />
+        <div className="col2">
+          <Card
+            sx={{
+              minWidth: 275,
+              maxWidth: "500px",
+              borderRadius: "10px",
+              margin: "20px",
+            }}
+            variant="outlined"
+          >
+            <CardContent>
+              {plant.imgurl && (
+                <CardMedia
+                  sx={{ height: 400, borderRadius: "10px" }}
+                  component="img"
+                  image={urlFor(plant.imgurl)}
+                />
+              )}
+            </CardContent>
+          </Card>
+        </div>
       </div>
       <Navbar />
-    </div>
+    </>
   );
 }
 
-export default Plant;
+export default plant;

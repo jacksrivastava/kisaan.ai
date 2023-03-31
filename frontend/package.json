@@ -9,7 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
     "@heroicons/react": "^2.0.16",
+    "@mui/icons-material": "^5.11.11",
+    "@mui/material": "^5.11.15",
+    "@sanity/client": "^5.4.1",
+    "@sanity/image-url": "^1.0.2",
+    "mui": "^0.0.1",
     "next": "13.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0"
