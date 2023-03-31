@@ -11,7 +11,7 @@ function Navbar() {
         <a href="/">
           <HomeIcon className="cursor-pointer h-6 w-6 text-blue-500 hover:text-blue-700" />
         </a>
-        <a href="/e_mandi">
+        <a href="https://agmarknet.gov.in/">
           <ArrowTrendingUpIcon className="cursor-pointer h-6 w-6 text-blue-500 hover:text-blue-700" />
         </a>
         <a href="https://farmos.github.io/farmOS-map/">
