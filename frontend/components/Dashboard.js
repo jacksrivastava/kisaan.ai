@@ -32,7 +32,7 @@ function DashBoard() {
           <div className="p-1 border-2 border-blue-200 rounded-lg">
             <div className="text-gray-600 italic font-bold">Sunlight</div>
             <div className="text-3xl mt-2 ml-1 font-thin">
-              <span className="text-6xl font-semibold">101</span>%
+              <span className="text-6xl font-semibold">70</span>%
             </div>
           </div>
         </div>
