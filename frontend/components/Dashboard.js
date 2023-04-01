@@ -8,7 +8,7 @@ function DashBoard() {
       <div className="w-full">
         <div className="flex flex-row w-full justify-between">
           <div className="font-bold italic text-2xl text-blue-500 m-4">
-            मेरा खेत
+            My Farm
           </div>
           
 
